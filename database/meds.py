@@ -2,7 +2,7 @@ import mongoengine as mongoengine
 import datetime
 
 
-class Volunteers(mongoengine.Document):
+class Meds(mongoengine.Document):
     created = mongoengine.DateTimeField(default=datetime.datetime.now)
     name = mongoengine.StringField(required=True)
     phone = mongoengine.StringField()

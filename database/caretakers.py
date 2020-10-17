@@ -27,5 +27,5 @@ class Caretakers(mongoengine.Document):
             'patients',
             'doctors',
         ],
-        'ordering': ['name']
+        'ordering': ['caretaker_id']
     }

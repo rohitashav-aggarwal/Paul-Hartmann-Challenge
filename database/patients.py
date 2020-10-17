@@ -1,6 +1,8 @@
 import mongoengine as mongoengine
 import datetime
 
+from vitals import Vitals
+
 
 class Patients(mongoengine.Document):
     created = mongoengine.DateTimeField(default=datetime.datetime.now)
@@ -9,8 +11,10 @@ class Patients(mongoengine.Document):
     phone = mongoengine.StringField(required=True)
     care_level = mongoengine.StringField()
     caretaker = mongoengine.StringField()
-    patient_vitals = mongoengine.ListField()
-    meds = mongoengine.ListField()
+
+    patient_vitals = mongoengine.EmbeddedDocumentListField(Vitals)
+
+    meds = mongoengine.StringField()
 
     meta = {
         'db_alias': 'core',
