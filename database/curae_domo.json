@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "5f8ae784d62e9ab1b1b4724e"
+  },
+  "created": {
+    "$date": "2020-10-17T15:45:55.821Z"
+  },
+  "name": "Karl",
+  "address": "Berlin",
+  "phone": "00000000",
+  "care_level": "high",
+  "caretaker": "Alex",
+  "patient_vitals": [],
+  "meds": []
+}]
