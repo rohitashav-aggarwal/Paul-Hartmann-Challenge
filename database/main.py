@@ -6,7 +6,7 @@ from services.package_service import PackageService
 
 
 def main():
-    global_init('hackdaysBW')
+    global_init('curae_domo')
     p = Patients()
     p.name = "Karl"
     p.address = "Berlin"
