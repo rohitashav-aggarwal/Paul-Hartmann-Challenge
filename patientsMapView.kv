@@ -1,0 +1,21 @@
+#:import MapView kivy.garden.mapview.MapView
+
+<PatientsMapView>:
+    MapView:
+            size_hint: None, None
+            width: root.width
+            height: root.height * 0.9
+            icon: 'map-marker'
+            lat: 48.761149
+            lon: 8.239828
+            zoom: 16
+            on_lat:
+                print('lat',self.lat)
+            on_lon:
+                print('lon',self.lon)
+            MapMarkerPopup:
+                lat: 48.761149
+                lon: 8.239828
+                Button:
+                    on_release:
+                        print('Hey')

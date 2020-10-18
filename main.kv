@@ -1,0 +1,84 @@
+#:import MDIconButton kivymd.uix.button.MDIconButton
+#:import MDLabel kivymd.uix.label
+
+WindowManager:
+    LoginScreen:
+    VitalsScreen:
+    PatientsScreen:
+    MapScreen:
+
+<LoginScreen>:
+    name: "LoginScreen"
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: rgba('#0e1574ff')
+            Triangle:
+	            points: [0, self.size[1], self.size[0], self.size[1], 0, self.size[1]-(.4*self.size[1])]
+
+            Color:
+                rgba: rgba('#0e1574c8')
+            Triangle:
+	            points: [0, self.size[1], self.size[0], self.size[1], self.size[0], self.size[1]-(.4*self.size[1])]
+        Image:
+            source: 'logo.png'
+
+
+    MDIconButton:
+        id: micbutton2
+        text: "microphone"
+        icon: 'map-marker'
+        user_font_size: "64sp"
+        pos_hint: {'center_x': 0.6-0.01, 'center_y': 0.2}
+        on_release:
+            app.root.current = 'mapScreen'
+            root.manager.transition.direction = "left"
+
+<MapScreen>:
+    name: "mapScreen"
+
+    GridLayout:
+        cols:1
+
+        MapView:
+            size_hint: None, None
+            width: root.width
+            height: root.height * 0.9
+            icon: 'map-marker'
+            lat: 48.761149
+            lon: 8.239828
+            zoom: 16
+
+            on_zoom:
+                self.zoom = 16 if self.zoom < 16 else self.zoom
+
+
+            MapMarkerPopup:
+                lat: 48.761149
+                lon: 8.239828
+
+        GridLayout:
+            cols: 3
+
+            MDIconButton:
+                pos: self.pos
+                id: center
+                text: "centerloc"
+                icon: 'map-marker'
+                user_font_size: "64sp"
+                on_release:
+                    app.root.current = 'mapScreen'
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text:"Set Route"
+                on_release:
+                    app.root.current = "myScreen"
+                    root.manager.transition.direction = "right"
+
+            Button:
+                text:"Go Back"
+                on_release:
+                    app.root.current = "myScreen"
+                    root.manager.transition.direction = "right"
