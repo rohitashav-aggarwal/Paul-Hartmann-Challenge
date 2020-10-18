@@ -10,6 +10,10 @@ body {
     justify-items: center;
     align-items: center;
     background-color: white;
+    background-image: url("../images/Hack Days Untitled_2020-Oct-17_08-57-21PM_CustomizedView8805681466_strip.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #login-error-msg-holder {
